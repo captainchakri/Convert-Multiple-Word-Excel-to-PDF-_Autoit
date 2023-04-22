@@ -64,6 +64,12 @@ $wdfile = _Word_DocOpen($WdApp,$file)
 _Word_DocExport($wdfile,StringLeft($file,StringLen($file)-4) & "pdf")
 _Word_DocClose($wdfile)
 
+if $Sp[Ubound($Sp)-1] = "doc" Then
+
+$wdfile = _Word_DocOpen($WdApp,$file)
+_Word_DocExport($wdfile,StringLeft($file,StringLen($file)-4) & "pdf")
+_Word_DocClose($wdfile)
+
 ElseIf  $Sp[Ubound($Sp)-1] = "xlsx" Then
 $xlfile = _Excel_BookOpen($XlApp, $file)
 _Excel_Export($XlApp, $xlfile, StringLeft($file,StringLen($file)-4) & "pdf")
